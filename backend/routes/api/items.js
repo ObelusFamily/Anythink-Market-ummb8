@@ -145,6 +145,10 @@ router.post("/", auth.required, function(req, res, next) {
       }
 
       var item = new Item(req.body.item);
+      if (item.image === ""){
+        item.image = "https://static.productionready.io/images/smiley-cyrus.jpg"
+      }
+      console.log(item)
 
       item.seller = user;
 
