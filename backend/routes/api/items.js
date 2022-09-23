@@ -146,6 +146,10 @@ router.post("/", auth.required, function(req, res, next) {
 
       var item = new Item(req.body.item);
 
+      if(item.image === ""){
+        item.image = "https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png"
+      }
+
       item.seller = user;
 
       return item.save().then(function() {
