@@ -109,6 +109,7 @@ router.get("/feed", auth.required, function(req, res, next) {
     offset = req.query.offset;
   }
 
+
   User.findById(req.payload.id).then(function(user) {
     if (!user) {
       return res.sendStatus(401);
@@ -146,9 +147,6 @@ router.post("/", auth.required, function(req, res, next) {
 
       var item = new Item(req.body.item);
 
-      if(item.image === ""){
-        item.image = "https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png"
-      }
 
       item.seller = user;
 
