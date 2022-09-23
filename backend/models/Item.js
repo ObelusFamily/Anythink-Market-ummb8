@@ -45,11 +45,18 @@ ItemSchema.methods.updateFavoriteCount = function() {
 };
 
 ItemSchema.methods.toJSONFor = function(user) {
+
+  var image = "https://static.productionready.io/images/smiley-cyrus.jpg"
+
+  if(this.image !== ""){
+    image = this.image
+  }
+
   return {
     slug: this.slug,
     title: this.title,
     description: this.description,
-    image: this.image,
+    image: image,
     createdAt: this.createdAt,
     updatedAt: this.updatedAt,
     tagList: this.tagList,

@@ -17,11 +17,6 @@ router.param("item", function(req, res, next, slug) {
 
       req.item = item;
 
-      if (item.image === ""){
-        
-        item.image = "https://static.productionready.io/images/smiley-cyrus.jpg"
-      }
-
       return next();
     })
     .catch(next);
